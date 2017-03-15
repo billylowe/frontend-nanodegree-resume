@@ -41,6 +41,27 @@ schools.schoolDates = "Sometime";
 schools.schoolLocation = "Sussex County";
 schools.schoolMajor = "Geography major";
 
+// JSON example for creating an object
+
+var education = {
+    "onlineClasses": [
+      {
+        "name": "Udacity",
+        "type": "online",
+        "course": ["html", "JavaScript", "CSS"]
+    }, {
+        "name": "CodeCademy",
+        "type": "online",
+        "course": ["html", "JavaScript", "CSS"]
+    }
+    ]
+}
+
+var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineDates = '<div class="date-text">%data%</div>';
+var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var formattedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
