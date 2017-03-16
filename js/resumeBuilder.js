@@ -153,8 +153,9 @@ var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", welcomeMsg);
 var formattedSkills = HTMLskills.replace("%data%", skills);
 */
 
-$("#header").prepend(formattedName);
 $("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
 /*
 $("#lets-connect").append(formattedMobile);
 $("#lets-connect").append(formattedEmail);
