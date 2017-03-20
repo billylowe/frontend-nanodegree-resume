@@ -12,7 +12,7 @@ var work = {
         "workTitle" : "Support Consultant",
         "workDates" : "2016 - Present",
         "workLocation" : "London",
-        "workDescripton" : "I did this and I did that"
+        "workDescription" : "I did this and I did that"
         },
         {
         "workStart" : "April 2011",
@@ -20,7 +20,7 @@ var work = {
         "workTitle" : "IT Administrator",
         "workDates" : "2011 - 2016",
         "workLocation" : "London",
-        "workDescripton" : "I did this and I did that"
+        "workDescription" : "I did this and I did that"
         }
     ]
 }
@@ -47,8 +47,51 @@ educationOnline.name = "Udacity";
 educationOnline.type = "online";
 educationOnline.course = ["html", "JavaScript", "CSS"];
 
-// If statement to check bio object
+//Create function that will hold work details
+function displayWork() {
+// For-in loop example
+for (job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
 
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].workEmployer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].workTitle);
+    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].workDescription);
+//    var formattedWorkStart = HTMLworkStart.replace("%data%", work.jobs[job].workStart);
+    var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].workDates);
+//    var formattedWorkDatesStart = work.jobs[job].workStart + formattedWorkDates;
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+    $(".work-entry:last").append(formattedEmployerTitle);
+    $(".work-entry:last").append(formattedWorkDates);
+//    $(".work-entry:last").append(work.jobs[job].workStart);
+    $(".work-entry:last").append(formattedDescription);
+}
+}
+//Call function to display work details
+displayWork();
+
+
+var formattedName = HTMLheaderName.replace("%data%", bio.bioName);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.bioRole);
+var formattedMobile = HTMLmobile.replace("%data%", bio.bioMobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.bioEmail);
+var formattedGitHub = HTMLgithub.replace("%data%", bio.bioGitHub);
+var formattedLocation = HTMLlocation.replace("%data%", bio.bioLocation);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedBioWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.bioWelcomeMsg);
+
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#topContacts").append(formattedMobile);
+$("#topContacts").prepend(formattedEmail);
+$("#topContacts").append(formattedGitHub);
+$("#topContacts").append(formattedLocation);
+$("#header").append(formattedBioPic);
+$("#header").append(formattedBioWelcomeMsg);
+
+
+// If statement to check bio object
 if (bio.bioSkills.length > 0) {
     $("#header").append(HTMLskillsStart);
 
@@ -65,21 +108,6 @@ if (bio.bioSkills.length > 0) {
     $("#skills").append(formattedSkill);
 
 }
-
-// For-in loop example
-for (job in work.jobs) {
-    $("#workExperience").append(HTMLworkStart);
-
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].workEmployer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].workTitle);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-    $(".work-entry:last").append(formattedEmployerTitle);
-
-    console.log(work.jobs[job])
-}
-
-
 
 // JSON example for creating an object
 
@@ -141,8 +169,7 @@ var education = {
 */
 
 
-var formattedName = HTMLheaderName.replace("%data%", bio.bioName);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.bioRole);
+
 /*
 var formattedMobile = HTMLmobile.replace("%data%", mobile);
 var formattedEmail = HTMLemail.replace("%data%", email);
@@ -153,8 +180,7 @@ var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", welcomeMsg);
 var formattedSkills = HTMLskills.replace("%data%", skills);
 */
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+
 
 /*
 $("#lets-connect").append(formattedMobile);
