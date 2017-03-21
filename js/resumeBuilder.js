@@ -89,6 +89,7 @@ $("#topContacts").append(formattedGitHub);
 $("#topContacts").append(formattedLocation);
 $("#header").append(formattedBioPic);
 $("#header").append(formattedBioWelcomeMsg);
+$("#main").append(internationalizeButton);
 
 
 // If statement to check bio object
@@ -108,6 +109,29 @@ if (bio.bioSkills.length > 0) {
     $("#skills").append(formattedSkill);
 
 }
+
+$(document).click(function(loc) {
+    var x = loc.pageX;
+    var y = loc.pageY;
+
+    logClicks(x,y);
+});
+
+//Internationalize button function - takes in 2 names and returns international version
+
+function inName(name) {
+    name = name.trim().split(" ");
+    console.log(name);
+    name[1] = name[1].toUpperCase();
+    name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+    return name [0] + " " + name[1];
+}
+//trim removes white space from front and back of string
+//split says split the string at the point of every space. This could be defined to split on a character or number
+//split returns an array. Console.log prints the array to the console
+//for name 0 we are saying silce the letter between position 0 and 1, which is the first letter. And then append that
+//letter to before position 1 within the name[0] strin. This ensures that the first name begins with capital letter
 
 // JSON example for creating an object
 
