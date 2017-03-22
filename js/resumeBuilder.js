@@ -3,6 +3,30 @@ var schools = {};
 var bio = {};
 var educationOnline = {};
 
+var projects = {[
+        {
+        "projectStart" : "Jan 2014",
+        "projectTitle" : "Build website",
+        "projectDates" : "Jan 2014 - Apr 2014"
+        "projectDescription" : "I built a website. It. Was. Good."
+        "projectImage" : "images/197x148.gif"
+        },
+        {
+        "projectStart" : "Apr 2016",
+        "projectTitle" : "Built a car",
+        "projectDates" : "Mar 2015 - Apr 2016"
+        "projectDescription" : "I built a car. It. Was. Fast."
+        "projectImage" : "images/197x148.gif"
+        }
+        {
+        "projectStart" : "Apr 2016",
+        "projectTitle" : "Built a boat",
+        "projectDates" : "Dec 2012 - Apr 2014"
+        "projectDescription" : "I built a built. It. Was. Floaty."
+        "projectImage" : "images/197x148.gif"
+        }
+    ]
+}
 
 var work = {
     "jobs": [
@@ -47,6 +71,7 @@ educationOnline.name = "Udacity";
 educationOnline.type = "online";
 educationOnline.course = ["html", "JavaScript", "CSS"];
 
+projects
 //Create function that will hold work details
 function displayWork() {
 // For-in loop example
