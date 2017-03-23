@@ -3,32 +3,8 @@ var schools = {};
 var bio = {};
 var educationOnline = {};
 
-var projects = {[
-        {
-        "projectStart" : "Jan 2014",
-        "projectTitle" : "Build website",
-        "projectDates" : "Jan 2014 - Apr 2014"
-        "projectDescription" : "I built a website. It. Was. Good."
-        "projectImage" : "images/197x148.gif"
-        },
-        {
-        "projectStart" : "Apr 2016",
-        "projectTitle" : "Built a car",
-        "projectDates" : "Mar 2015 - Apr 2016"
-        "projectDescription" : "I built a car. It. Was. Fast."
-        "projectImage" : "images/197x148.gif"
-        }
-        {
-        "projectStart" : "Apr 2016",
-        "projectTitle" : "Built a boat",
-        "projectDates" : "Dec 2012 - Apr 2014"
-        "projectDescription" : "I built a built. It. Was. Floaty."
-        "projectImage" : "images/197x148.gif"
-        }
-    ]
-}
-
 var work = {
+
     "jobs": [
         {
         "workStart" : "April 2016",
@@ -48,6 +24,33 @@ var work = {
         }
     ]
 }
+
+var projects = {
+    "projects" : [
+        {
+        "projectStart" : "Jan 2014",
+        "projectTitle" : "Build website",
+        "projectDates" : "Jan 2014 - Apr 2014",
+        "projectDescription" : "I built a website. It. Was. Good.",
+        "projectImage" : "images/197x148.gif",
+        },
+        {
+        "projectStart" : "Apr 2016",
+        "projectTitle" : "Built a car",
+        "projectDates" : "Mar 2015 - Apr 2016",
+        "projectDescription" : "I built a car. It. Was. Fast.",
+        "projectImage" : "images/197x148.gif",
+        },
+        {
+        "projectStart" : "Apr 2016",
+        "projectTitle" : "Built a boat",
+        "projectDates" : "Dec 2012 - Apr 2014",
+        "projectDescription" : "I built a built. It. Was. Floaty.",
+        "projectImage" : "images/197x148.gif",
+        }
+        ]
+    }
+
 
 
 schools.schoolStart = "Sometime";
@@ -71,7 +74,8 @@ educationOnline.name = "Udacity";
 educationOnline.type = "online";
 educationOnline.course = ["html", "JavaScript", "CSS"];
 
-projects
+
+
 //Create function that will hold work details
 function displayWork() {
 // For-in loop example
@@ -95,6 +99,26 @@ for (job in work.jobs) {
 //Call function to display work details
 displayWork();
 
+
+//encapsualte a function within an object to display projects
+projects.display = function() {
+
+    for (project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
+
+        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].projectTitle);
+        var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].projectDates);
+        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].projectDescription);
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].projectImage);
+
+        $(".project-entry:last").append(formattedProjectTitle);
+        $(".project-entry:last").append(formattedProjectDates);
+        $(".project-entry:last").append(formattedProjectDescription);
+        $(".project-entry:last").append(formattedProjectImage);
+    }
+}
+
+projects.display();
 
 var formattedName = HTMLheaderName.replace("%data%", bio.bioName);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.bioRole);
